@@ -103,4 +103,7 @@ public class Personne {
 		this.setAge(age);
 		
 	}
+	public Personne() {
+		// TODO Auto-generated constructor stub
+	}
 }
