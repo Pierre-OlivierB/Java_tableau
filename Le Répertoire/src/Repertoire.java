@@ -9,7 +9,7 @@ public class Repertoire {
 		/*Partie 1*/
 		/*Nombre de personnes à saisir (colonne)*/
 		Tableau testPersonne=new Tableau();
-		testPersonne.personneClavier();
+		testPersonne.choixPersonne();
 		
 		/*Partie 2*/
 		/*Pour chaque personne vous saisirez 

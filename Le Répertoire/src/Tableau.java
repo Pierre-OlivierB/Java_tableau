@@ -1,8 +1,22 @@
 import java.util.Scanner;
 
 public class Tableau {
-	Scanner scanner = new Scanner(System.in);
-	public void personneClavier() {
+	static Scanner scanner = new Scanner(System.in);
+	public void choixPersonne() {
+		personneClavier();
+		System.out.println("Voulez-vous Continuer? yes/no");
+		String reponse=Clavier.lireString();
+		System.out.println("Votre choix: "+reponse);
+		
+		if (reponse.equals("yes")) {
+			personneClavier();
+		}
+		else {
+			/*test = false;*/
+			System.out.println("Merci à bientôt!");
+		}
+	}
+	public static void personneClavier() {
 		System.out.println("Exo 1");
 		/*Déclaration variables*/
 		String prenom="";
@@ -12,17 +26,25 @@ public class Tableau {
 		String ville="";
 		Integer age=0;
 		Personne[] array;
+		String reponse="o";
 		/*Tableau à 6colonnes et le nombre de personnes en lignes*/
-		System.out.println("Combien voulez-vous d'objet?");
-		int n =4;	
-		array= new Personne[n];
-
+		
+		/*Demande : combien d'objet?*/
+		/*System.out.println("Combien voulez-vous d'objet?");
+		int n = scanner.nextInt();
+		/*int n =4;	*/
+		/*array= new Personne[n];*/
+		int n=1;
+		
 		/*array[0]=new Personne("prenom","oui","adresse",10000,"ville",100);
 		array[1]=new Personne("prenom","non","adresse",10000,"ville",50);
 		array[2]=new Personne("prenom","ok","adresse",10000,"ville",120);
 		array[3]=new Personne("prenom","plop","adresse",10000,"ville",25);*/
+		array= new Personne[n];
+		do{
+			
 		for (int i=0;i<n;i++) {
-			scanner.nextLine();
+			/*scanner.nextLine();*/
 			array[i]=new Personne(prenom,nom,adresse,codePostal,ville,age);
 			/*insertion objet i prenom*/
 			System.out.print("Nouvelle personne: ");
@@ -55,8 +77,22 @@ public class Tableau {
 			System.out.println("Quel est son âge?");
 			age=scanner.nextInt();
 			array[i].setAge(age);
+			
+			scanner.nextLine();
+			System.out.println("Voulez vous rajouter un objet? Reponse o/n");
+			reponse = scanner.nextLine();
+			if(reponse.equals("o")) {
+				n++;
+				System.out.println("Il nous en faut "+n);
+				array= new Personne[n];
+			}
+			else {
+				System.out.println("Sheh ");
+			}
 					
 		}
+		}
+		while(reponse.equals("o"));
 		/*Impression des caractéristiques de l'objet*/
 		for(int i=0;i<array.length;i++) {
 			System.out.print(array[i].getPrenom()+"\t");
@@ -85,6 +121,13 @@ public class Tableau {
 		System.out.println("La personne la plus âgé est "+array[n-1].getNom()+". ");	
 	
 	}
+	/*public static int Reponse(int rep){
+		do {
+			personneClavier();
+		}
+		while();
+		return(rep);
+	}*/
 }
 	/*Tri-bulles pour connaitre le plus jeune et le plus vieux*/
 	
