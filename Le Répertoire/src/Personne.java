@@ -8,11 +8,11 @@ public class Personne {
 	// TODO Auto-generated method stub
 	private String nom;
 	private String prenom;
-	private final int numero;
+	/*private final int numero;*/
 	private static int nbInstances;
 	private LocalDate date_nais;
 	private String adresse;
-	private String codePostale;
+	private int codePostale;
 	private String ville;
 	private int age;
 
@@ -23,10 +23,10 @@ public class Personne {
 	public void setAdresse(String adresse) {
 		this.adresse = adresse;
 	}
-	public String getCodePostale() {
+	public int getCodePostale() {
 		return codePostale;
 	}
-	public void setCodePostale(String codePostale) {
+	public void setCodePostale(int codePostale) {
 		this.codePostale = codePostale;
 	}
 	public String getVille() {
@@ -55,9 +55,9 @@ public class Personne {
 	public void setPrenom(String p) {
 		prenom=p.toLowerCase();
 	}
-	public int getNumero() {
+	/*public int getNumero() {
 		return numero;
-	}
+	}*/
 	public static int getNbInstances() {
 		return nbInstances;
 	}
@@ -71,14 +71,14 @@ public class Personne {
 		/*long millis = date.getTime();*/			
 	}
 	
-	public Personne() {
+	/*public Personne() {
 		nbInstances++;
 		numero=nbInstances;
-	}
-	@Override
-	public String toString() {
+	}*/
+	/*@Override*/
+	/*public String toString() {
 		return "Personne numéro "+ this.numero+ "; \nNombre total de personne : "+nbInstances; 
-	}
+	}*/
 	
 	public long calculAge() {
 		return date_nais.until(LocalDate.now(),ChronoUnit.YEARS);
@@ -92,6 +92,15 @@ public class Personne {
 		this.setNom(nom);
 		this.setPrenom(prenom);
 		nbInstances++;
-		numero = nbInstances;
+		/*numero = nbInstances;*/
+	}
+	public Personne(String prenom,String nom,String adresse, int codePostal,String ville,int age) {
+		this.setPrenom(prenom);
+		this.setNom(nom);
+		this.setAdresse(adresse);
+		this.setCodePostale(codePostal);
+		this.setVille(ville);
+		this.setAge(age);
+		
 	}
 }
