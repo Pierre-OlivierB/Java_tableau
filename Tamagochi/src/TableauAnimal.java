@@ -108,7 +108,6 @@ public class TableauAnimal {
 		System.out.println("Vous finnissez par lui en donner.");
 		System.out.println(animal.getNom()+" vous sourrit!");
 		int m=animal.getEnergie();
-		int p=animal.getPoids();
 		int r=Random();
 		m=m+r;
 		if(r>3) {

@@ -13,6 +13,19 @@ Contraintes :
 		
 		TableauAnimal test= new TableauAnimal();
 		test.initialisationAnimal();
+		/*Tamagochi 2.0
+		 * Réaliser un Tamagotchi amélioré, accompagné d'un document écrit explicitant les améliorations apportées.
+Ce document sera appelé "dossier de conception : tamagotchi".
+Il devra contenir :
+
+    un rappel de ce qui a été fait.
+    une description des points d'amélioration qui ont été fait.
+    une description des points qu'il reste à améliorer.
+    un diagramme de classe. ( voir page 2 Tp compte bancaire)
+    un lien vers les sources.
+
+Fournir le "dossier de conception : tamagotchi" au format pdf
+nom du fichier rendu : dossier-tamagotchi-{ votre nom }.pdf*/
 	}
 
 }
