@@ -1,16 +1,20 @@
 
 
 public class TableauAnimal {
-	
+	/*Initialisation de l'animal*/
 	public void initialisationAnimal() {
-		Animal denver= new Animal("Denver", 10,"Ne joue pas","Ne dort pas","Ne mange pas",1);
+		/*Configuration de l'animal*/
+		Animal denver= new Animal("Denver", 10, 1);
 		System.out.println("Ton dinosaur s'appelle: "+denver.getNom());
 		boolean vivant=false;
+		/*boucle d'action de l'animal*/
 		do {
 			/*statut(denver);*/
 			vivant=true;
+			/*affichage de l'état puis mise en action*/
 			montreEtat(denver);
 			actions(denver);
+			/*vérifications des constantes*/
 			if(denver.getEnergie()<1) {
 				System.out.println(denver.getNom()+"  se sent à bout d'énergie.");
 			}
@@ -25,9 +29,11 @@ public class TableauAnimal {
 		while(!vivant);
 		System.out.println(denver.getNom()+" est mort! Paix à son âme.");
 	}
+	/*Présentation de l'état de l'animal*/
 	public static void montreEtat(Animal animal) {
 		System.out.println("Actuellement "+animal.getNom()+" a "+animal.getEnergie()+" d'énergie.");	
 	}
+	/*propositions d'actions*/
 	public static void actions(Animal animal) {
 		System.out.println("Que voulez-vous faire avec "+animal.getNom()+" ?");
 		System.out.println("Réponse 1: Manger; 2: Jouer; 3: Dormir");
@@ -53,11 +59,13 @@ public class TableauAnimal {
 			actions(animal);
 		}
 	}
+	/*calcul de l'énergie perdue*/
 	public static void energieAnimal(Animal animal) {
 		int n=animal.getEnergie();
 		int r= Random();
 		animal.setEnergie(n-r);
 	}
+	/*poids-- grâce à actions*/
 	public static void jouerAnimal(Animal animal) {
 		System.out.println(animal.getNom()+" court partout");
 		System.out.println(animal.getNom()+" sort sa guitare et joue un morceau.");
@@ -70,6 +78,7 @@ public class TableauAnimal {
 		}
 		animal.setPoids(p);
 	}
+	/*domir = energie++*/
 	public static void dormirAnimal(Animal animal) {
 		System.out.println(animal.getNom()+" va se coucher");
 		int h=animal.getEnergie();
@@ -93,6 +102,7 @@ public class TableauAnimal {
 			System.out.println("Vous ne savez pas quoi faire, sans faire exprès, vous réveillez"+animal.getNom()+"!");	
 		}
 }
+	/*Manger = poids++ && energie++*/
 	public static void mangerAnimal(Animal animal) {
 		System.out.println(animal.getNom()+" vous tourne autour pour trouver la nourriture.");
 		System.out.println("Vous finnissez par lui en donner.");
@@ -110,11 +120,13 @@ public class TableauAnimal {
 		animal.setEnergie(m);
 		poidsAnimal(animal,r);
 	}
+	/*poids = poids init + qtt*/
 	public static void poidsAnimal(Animal animal,int quantite) {
 		int volume=animal.getPoids();
 		animal.setPoids(volume+quantite);
 		System.out.println("Attention "+animal.getNom()+" prends du poids.");
 	}
+	/*Calcul du random*/
 	public static int Random() {
 		int max=5;
 		int min=1;

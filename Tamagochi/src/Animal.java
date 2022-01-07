@@ -51,6 +51,11 @@ public class Animal {
 		this.setEnergie(energie);
 		this.setDormir(dormir);
 	}
+	public Animal(String nom, int energie, int poids) {
+		this.setNom(nom);
+		this.setEnergie(energie);
+		this.setPoids(poids);
+	}
 	public Animal(int energie,String jouer,String manger,int poids) {
 		this.setEnergie(energie);
 		this.setJouer(jouer);
