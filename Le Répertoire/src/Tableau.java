@@ -1,10 +1,11 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Tableau {
 	static Scanner scanner = new Scanner(System.in);
 	public void choixPersonne() {
 		personneClavier();
-		System.out.println("Voulez-vous Continuer? yes/no");
+		/*System.out.println("Voulez-vous Continuer? yes/no");
 		String reponse=Clavier.lireString();
 		System.out.println("Votre choix: "+reponse);
 		
@@ -13,8 +14,8 @@ public class Tableau {
 		}
 		else {
 			/*test = false;*/
-			System.out.println("Merci à bientôt!");
-		}
+			/*System.out.println("Merci à bientôt!");
+		}*/
 	}
 	public static void personneClavier() {
 		System.out.println("Exo 1");
@@ -26,7 +27,8 @@ public class Tableau {
 		String ville="";
 		Integer age=0;
 		Personne[] array;
-		String reponse="o";
+		String reponse="";
+		boolean test =false;
 		/*Tableau à 6colonnes et le nombre de personnes en lignes*/
 		
 		/*Demande : combien d'objet?*/
@@ -42,8 +44,9 @@ public class Tableau {
 		array[3]=new Personne("prenom","plop","adresse",10000,"ville",25);*/
 		array= new Personne[n];
 		do{
-			
-		for (int i=0;i<n;i++) {
+			test=true;
+			int i=n-1;
+		/*for (int i=0;i<n;i++) {*/
 			/*scanner.nextLine();*/
 			array[i]=new Personne(prenom,nom,adresse,codePostal,ville,age);
 			/*insertion objet i prenom*/
@@ -78,21 +81,35 @@ public class Tableau {
 			age=scanner.nextInt();
 			array[i].setAge(age);
 			
+			/*question voulez vous continuer?*/
 			scanner.nextLine();
 			System.out.println("Voulez vous rajouter un objet? Reponse o/n");
 			reponse = scanner.nextLine();
+			System.out.println("Votre réponse: "+reponse);
+			
+			/*copy du tableau et ajout de case*/
 			if(reponse.equals("o")) {
+				test=!test;
+				System.out.println("Votre réponse: "+n);
+				array=Arrays.copyOf(array, n+1);
 				n++;
-				System.out.println("Il nous en faut "+n);
-				array= new Personne[n];
 			}
 			else {
-				System.out.println("Sheh ");
+				System.out.println("Votre tableau est donc le suivant: ");
+				/*for(int j=0;j<array.length;j++) {
+				System.out.print(array[j].getPrenom()+"\t");
+				System.out.print(array[j].getNom()+"\t");
+				System.out.print(array[j].getAdresse()+"\t");
+				System.out.print(array[j].getCodePostale()+"\t");
+				System.out.print(array[j].getVille()+"\t");
+				System.out.println(array[j].getAge()+" Ans");
+				}*/
 			}
+			
 					
+		/*}*/
 		}
-		}
-		while(reponse.equals("o"));
+		while(!test);
 		/*Impression des caractéristiques de l'objet*/
 		for(int i=0;i<array.length;i++) {
 			System.out.print(array[i].getPrenom()+"\t");
