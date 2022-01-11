@@ -23,6 +23,14 @@ public class TableauAnimal {
 			else if(denver.getPoids()>15) {
 				System.out.println(denver.getNom()+" est plus vert que d'habitude. Il ne se sent pas bien.");
 			}
+			else if(horloge.getTempsPasse()>24) {
+				tombeDeFatigue(denver, horloge);
+				vivant=!vivant;
+			}
+			else if(horloge.getJourDeVie()>10) {
+				horloge.setTrancheAge("Vieux");
+				vivant=!vivant;
+			}
 			else {
 				System.out.println(denver.getNom()+" se sent bien.");
 				vivant=!vivant;
@@ -55,7 +63,7 @@ public class TableauAnimal {
 		else if(choix==3) {
 			System.out.println("Vous avez choisi de lui demander d'aller se coucher. "+animal.getNom()+" le fait à reculon!");
 			if(animal.getEnergie()>15) {
-				System.out.println(animal.getNom()+"ne vous écoute pas, il veut faire autre chose!");
+				System.out.println(animal.getNom()+" ne vous écoute pas, il veut faire autre chose!");
 				actions(animal,passe);
 			}
 			dormirAnimal(animal,passe);
@@ -90,21 +98,22 @@ public class TableauAnimal {
 	/*domir = energie++; dormir = temmps++ +1*/
 	public static void dormirAnimal(Animal animal, Temps passe) {
 		System.out.println(animal.getNom()+" va se coucher");
-		int h=animal.getEnergie();
-		int p=passe.getTempsPasse();
-		int ran=Random();
-		h=h+ran;
-		passe.setTempsPasse(p+ran+1);
-		animal.setEnergie(h);
-		System.out.println(animal.getNom()+" dort toujours.");
+		sommeilNormal(animal,passe);
 		System.out.println(animal.getNom()+" est à "+animal.getEnergie()+" d'energie!");
 		System.out.println("Voulez-vous le laisser dormi? Réponse attendu: o/n");
 		String r=Clavier.lireString();
 		if(r.equals("o")) {
-			h=animal.getEnergie();
-			h=h+Random();
-			animal.setEnergie(h);
-			System.out.println(animal.getNom()+" se réveille doucement...");
+			if(passe.getTempsPasse()>24) {
+				continueDeDormir(animal,passe);
+			}
+			else {
+				/*int h=animal.getEnergie();
+				h=h+Random();
+				animal.setEnergie(h);*/
+				sommeilNormal(animal,passe);
+				System.out.println(animal.getNom()+" se réveille doucement...");
+			}
+			
 		}
 		else if(r.equals("n")) {
 			System.out.println("Vous réveillez doucement "+animal.getNom()+". L'animal ouvre les yeux et vous sourrit.");
@@ -139,10 +148,54 @@ public class TableauAnimal {
 		animal.setPoids(volume+quantite);
 		System.out.println("Attention "+animal.getNom()+" prends du poids.");
 	}
-	/*affichage du temps qui passe*/
-//	public void affichageDuTemps(Animal animal,Temps passe) {
-//		
-//	}
+	/*+24h => l'animal tombe de fatigue*/
+	public static void tombeDeFatigue(Animal animal,Temps passe) {
+		System.out.println(animal.getNom()+" a sommeille.");
+			int h=passe.getTempsPasse();
+			passe.setTempsPasse(h-24);
+			int j=passe.getJourDeVie();
+			j++;
+			passe.setJourDeVie(j);
+			System.out.println(animal.getNom()+" s'effondre de sommeil.");
+			pleinReve(animal, passe);
+			
+	}
+	/*L'utilisateur le laisse dormir: cas passage des 24h*/
+	public static void continueDeDormir(Animal animal,Temps passe) {
+		int h=animal.getEnergie();
+		int r =Random();
+		h=h+r;
+		animal.setEnergie(h);
+		System.out.println(animal.getNom()+" continue de dormir");
+		int g=passe.getTempsPasse();
+		passe.setTempsPasse(g-24);
+		int j=passe.getJourDeVie();
+		j++;
+		passe.setJourDeVie(j);
+		System.out.println("Après "+r+"h de sommeil supplémentaires "+animal.getNom()+" se réveille de lui même!");
+	}
+	/*si tombe de fatigue */
+	public static void pleinReve(Animal animal, Temps passe) {
+		int h=animal.getEnergie();
+		int r =Random();
+		h=h+r;
+		animal.setEnergie(h-1);
+		System.out.println(animal.getNom()+" continue de dormir");
+		int g=passe.getTempsPasse();
+		passe.setTempsPasse(g+r);
+		System.out.println("Après "+r+"h de sommeil supplémentaires "+animal.getNom()+" se réveille de lui même!");
+	}
+	/*calcul du sommeil normal*/
+	public static void sommeilNormal(Animal animal, Temps passe) {
+		int h=animal.getEnergie();
+		int p=passe.getTempsPasse();
+		int ran=Random();
+		h=h+ran;
+		passe.setTempsPasse(p+ran+1);
+		animal.setEnergie(h);
+		//System.out.println(animal.getNom()+" dort toujours.");
+	}
+	
 	
 	/*temps jouer*/
 //	public void tempsJouer() {
