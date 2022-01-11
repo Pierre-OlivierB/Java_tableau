@@ -5,6 +5,8 @@ public class TableauAnimal {
 	public void initialisationAnimal() {
 		/*Configuration de l'animal*/
 		Animal denver= new Animal("Denver", 10, 1);
+		/*Configuration du temps*/
+		Temps clock=new Temps(0,"Jeune",0);
 		System.out.println("Ton dinosaur s'appelle: "+denver.getNom());
 		boolean vivant=false;
 		/*boucle d'action de l'animal*/
