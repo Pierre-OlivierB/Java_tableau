@@ -64,7 +64,7 @@ public class TableauAnimal {
 			System.out.println("Vous avez choisi de lui demander d'aller se coucher. "+animal.getNom()+" le fait à reculon!");
 			if(animal.getEnergie()>15) {
 				System.out.println(animal.getNom()+" ne vous écoute pas, il veut faire autre chose!");
-				actions(animal,passe);
+				return;
 			}
 			dormirAnimal(animal,passe);
 		}
