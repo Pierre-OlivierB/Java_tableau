@@ -6,7 +6,10 @@ public class TableauAnimal {
 		/*Configuration de l'animal*/
 		Animal denver= new Animal("Denver", 10, 1);
 		/*Configuration du temps*/
-		Temps horloge=new Temps(0,"Jeune",0);
+		Temps horloge=new Temps(0,"jeune",0);
+		System.out.println("Quel nom voulez-vous donner à votre animal?");
+		String rep=Clavier.lireString();
+		denver.setNom(rep);
 		System.out.println("Ton dinosaur s'appelle: "+denver.getNom());
 		boolean vivant=false;
 		/*boucle d'action de l'animal*/
@@ -23,7 +26,7 @@ public class TableauAnimal {
 			else if(denver.getPoids()>15) {
 				System.out.println(denver.getNom()+" est plus vert que d'habitude. Il ne se sent pas bien.");
 			}
-			else if(horloge.getTempsPasse()>24) {
+			else if(horloge.getTempsPasse()>23) {
 				tombeDeFatigue(denver, horloge);
 				vivant=!vivant;
 			}
@@ -38,6 +41,7 @@ public class TableauAnimal {
 		}
 		while(!vivant);
 		System.out.println(denver.getNom()+" est mort! Paix à son âme.");
+		System.out.println("Après "+horloge.getJourDeVie()+" jours et "+horloge.getTempsPasse()+" heures de vie, le "+ horloge.getTrancheAge()+" "+denver.getNom()+" n'est plus!");
 	}
 	/*Présentation de l'état de l'animal*/
 	public static void montreEtat(Animal animal, Temps passe) {
@@ -52,14 +56,17 @@ public class TableauAnimal {
 		System.out.println("Que voulez-vous faire avec "+animal.getNom()+" ?");
 		System.out.println("Réponse 1: Manger; 2: Jouer; 3: Dormir");
 		int choix=Clavier.lireInt();
+		//choix manger
 		if(choix==1) {
 			System.out.println("Vous avez choisi de nourrir "+animal.getNom()+", il est content!");
 			mangerAnimal(animal,passe);
 		}
+		//choix jouer
 		else if(choix==2) {
 			System.out.println("Vous avez choisi de jouer avec "+animal.getNom()+", il est content!");
 			jouerAnimal(animal,passe);
 		}
+		//choix dormir
 		else if(choix==3) {
 			System.out.println("Vous avez choisi de lui demander d'aller se coucher. "+animal.getNom()+" le fait à reculon!");
 			if(animal.getEnergie()>15) {
@@ -70,7 +77,7 @@ public class TableauAnimal {
 		}
 		else {
 			System.out.println(animal.getNom()+" n'a pas bien compris ce que tu voulais faire.");
-			actions(animal,passe);
+			return;
 		}
 	}
 	/*calcul de l'énergie perdue*/
@@ -103,7 +110,7 @@ public class TableauAnimal {
 		System.out.println("Voulez-vous le laisser dormi? Réponse attendu: o/n");
 		String r=Clavier.lireString();
 		if(r.equals("o")) {
-			if(passe.getTempsPasse()>24) {
+			if(passe.getTempsPasse()>23) {
 				continueDeDormir(animal,passe);
 			}
 			else {
