@@ -91,8 +91,30 @@ public class TableauDragons {
 		System.out.print("Feu :"+array[recherche].getFeu()+"\t");
 		System.out.println("Amour: "+array[recherche].getComportAmour());
 		
-		/*Affichage Dragon avec ou sans feu?*/
+		/*Recherche d'un nom de dragon en particulier*/
+		System.out.println("Quel Nom de Dragon voulez vous choisir? Les dragons présents sont: ");
+		for(int i=0;i<array.length;i++) {
+			System.out.println(array[i].getNom());
+		}
+		System.out.println("Votre choix: ");
 		scanner.nextLine();
+		String rechercheNomString=scanner.nextLine();
+		for(int j=0;j<array.length;j++) {
+			if (rechercheNomString.equals(array[j].getNom())) {
+				System.out.print("Nom: "+array[j].getNom()+"\t");
+				System.out.print("Sexe: "+array[j].getSexe()+"\t");
+				System.out.print("Taille: "+array[j].getTaille()+"cm\t");
+				System.out.print("Ecailles: "+array[j].getNmbrEcailles()+"\t");
+				System.out.print("Feu :"+array[j].getFeu()+"\t");
+				System.out.println("Amour: "+array[j].getComportAmour());
+			}
+			else{
+				//System.out.println("Le nom que vous recherchez n'est pas attribué!");
+			}
+		}
+		
+		/*Affichage Dragon avec ou sans feu?*/
+		//scanner.nextLine();
 		System.out.println("Quel Dragon voulez vous choisir? Avec feu ou sans feu? Réponse attendu: f/sf");
 		String rechercheFeu=scanner.nextLine();
 		/*Toues les Dragons avec feu*/
