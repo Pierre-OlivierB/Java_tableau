@@ -42,6 +42,18 @@ public class MainApp {
 		System.out.println("R: "+test2[i].getR());
 		}
 		
+		//exo 3
+		//Créez un tableau de plusieurs objets de la classe C_Cercle
+		int nombre=1;
+		boolean ok=true;
+		do {
+			int numero=nombre;
+			nombre++;
+			ok=false;
+			C_CERCLE[]test3=new C_CERCLE[nombre];
+			test3[]=new C_CERCLE(numero, nombre, numero);
+		} while (!ok);
+		
 	}
 	
 }
