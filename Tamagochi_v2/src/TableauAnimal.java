@@ -54,7 +54,7 @@ public class TableauAnimal {
 	/*propositions d'actions*/
 	public static void actions(Animal animal,Temps passe) {
 		System.out.println("Que voulez-vous faire avec "+animal.getNom()+" ?");
-		System.out.println("Réponse 1: Manger; 2: Jouer; 3: Dormir");
+		System.out.println("Réponse 1: Manger; 2: Jouer; 3: Dormir.(Réponse attendue: 1/ 2/ 3)");
 		int choix=Clavier.lireInt();
 		//choix manger
 		if(choix==1) {
@@ -107,7 +107,7 @@ public class TableauAnimal {
 		System.out.println(animal.getNom()+" va se coucher");
 		sommeilNormal(animal,passe);
 		System.out.println(animal.getNom()+" est à "+animal.getEnergie()+" d'energie!");
-		System.out.println("Voulez-vous le laisser dormi? Réponse attendu: o/n");
+		System.out.println("Voulez-vous le laisser dormi? (Réponse attendu: o/ n)");
 		String r=Clavier.lireString();
 		if(r.equals("o")) {
 			if(passe.getTempsPasse()>23) {
