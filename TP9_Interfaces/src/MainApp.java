@@ -69,7 +69,8 @@ public class MainApp {
 		//TP2 java p.15
 		C_POINT test4= new C_POINT('a');
 		test4.affiche();
-		//TP 3 java p.18
+		//TP 3 java p.18 (Voir l'autre package)
+		
 	}
 	
 }
