@@ -1,3 +1,4 @@
+import java.util.Scanner;
 
 public class MainApp {
 		
@@ -44,15 +45,26 @@ public class MainApp {
 		
 		//exo 3
 		//Créez un tableau de plusieurs objets de la classe C_Cercle
-		int nombre=1;
-		boolean ok=true;
-		do {
-			int numero=nombre;
-			nombre++;
-			ok=false;
-			C_CERCLE[]test3=new C_CERCLE[nombre];
-			test3[]=new C_CERCLE(numero, nombre, numero);
-		} while (!ok);
+		Scanner s= new Scanner(System.in);
+		System.out.println("Combien voulez-vous de cases? ");
+		int nombre = s.nextInt();
+		int numero=nombre;
+		C_CERCLE[]test3=new C_CERCLE[nombre];
+		for (int i = 0; i<test3.length;i++) {
+//			nombre++;
+			test3[i]=new C_CERCLE(numero, nombre, numero);
+			System.out.println("X"+i+" "+test3[i].getX());	
+			System.out.println("Y"+i+" "+test3[i].getY());
+			System.out.println("R"+i+" "+test3[i].getR());	
+		}
+//			ok=false;
+			
+//		boolean ok=true;
+//		do {
+			
+			
+			
+//		} while (!ok);
 		
 	}
 	
