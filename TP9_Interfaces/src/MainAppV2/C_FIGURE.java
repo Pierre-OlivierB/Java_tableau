@@ -1,6 +1,6 @@
 package MainAppV2;
 
-public class C_FIGURE {
+public abstract class C_FIGURE {
 	protected int x;
 	protected int y;
 	protected int a;
@@ -33,10 +33,16 @@ public class C_FIGURE {
 		this.x=delta_x;
 		this.y=delta_y;
 	}
-	public void affiche() {
+	protected void dessine() {
+		affiche();
 		System.out.println("La position de x est: "+x);
 		System.out.println("La position de y est: "+y);
 	}
+	abstract public void affiche() ;
+//	{
+//		System.out.println("La position de x est: "+x);
+//		System.out.println("La position de y est: "+y);
+//	}
 	public int Aire() {
 		this.a= x*y;
 		return a;

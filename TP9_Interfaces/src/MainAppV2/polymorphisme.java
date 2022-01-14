@@ -41,7 +41,8 @@ public class polymorphisme {
 			container[i]=new C_CARRE();
 		}
 		for(int i=0;i<100;i++) {
-			container[i].affiche();
+			//container[i].affiche();
+			container[i].dessine();
 			container[i].Aire();
 		}
 //		System.out.println(container[5].getA());

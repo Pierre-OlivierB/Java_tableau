@@ -37,7 +37,7 @@ public class C_CERCLE2 extends C_FIGURE{
 //		
 //	}
 	public void affiche() {
-		super.affiche();
+		//super.affiche();
 		System.out.println(" et de rayon"+ r);
 	}
 	public int Aire() {
