@@ -1,6 +1,6 @@
 package MainAppV2;
 
-public class C_CERCLE2 extends C_FIGURE{
+public class C_CERCLE2 extends C_FIGURE implements I_CALCUL_GEOMETRIQUE,I_TYPE_FIGURE {
 	int r;
 	int aire;
 	
@@ -40,13 +40,16 @@ public class C_CERCLE2 extends C_FIGURE{
 		//super.affiche();
 		System.out.println(" et de rayon"+ r);
 	}
-	public int Aire() {
-		super.Aire();
-		aire=((super.Aire())/super.Aire())*2*3*(this.r*this.r);
+	public int getAire() {
+		super.getAire();
+		aire=((super.getAire())/super.getAire())*2*3*(this.r*this.r);
 		return aire;
 	}
 	public double surface() {
 		double s=2*(3.14)*(r^2);
 		return s;
+	}
+	public String getType() {
+		return "cercle";
 	}
 }

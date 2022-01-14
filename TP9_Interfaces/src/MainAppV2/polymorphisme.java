@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class polymorphisme {
 	static int total;
+	static int totalprix;
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		//TP 3 java p.18
@@ -43,22 +44,38 @@ public class polymorphisme {
 		for(int i=0;i<100;i++) {
 			//container[i].affiche();
 			container[i].dessine();
-			container[i].Aire();
+			container[i].getAire();
+			System.out.println(container[i].getType());
 		}
-//		System.out.println(container[5].getA());
-		for(int i=0;i<100;i++) {
-			total = container[i].getA();
-			System.out.println(total);
-			Aire_Totale(total);
-		}
+
+		//Calcul Aire_Totale
+		int i=0;
+		do {
+			total += container[i].getAire();
+			//System.out.println(total);
+			i++;
+		}while(i<100);
 		System.out.println(total);
 		
-		//for
+		//TP5
+		//exo1
+		int NB_Cases;
+		NB_Cases=2;
+		Payant ligne_prix [] = new Payant [NB_Cases];
+		int j=0;
+		do {
+			totalprix += ligne_prix[j].getPrix();
+			//System.out.println(total);
+			j++;
+		}while(j<ligne_prix.length);
+		System.out.println(total);
+		//exo2
+		//getAire
 	}
-	public static int Aire_Totale(int ajout) {
-		total+=ajout;
-		return total;
-		}
+//	public static int Aire_Totale(int ajout) {
+//		total+=ajout;
+//		return total;
+//		}
 	
 
 }

@@ -1,6 +1,6 @@
 package MainAppV2;
 
-public abstract class C_FIGURE {
+public abstract class C_FIGURE implements I_CALCUL_GEOMETRIQUE,I_TYPE_FIGURE {
 	protected int x;
 	protected int y;
 	protected int a;
@@ -37,13 +37,14 @@ public abstract class C_FIGURE {
 		affiche();
 		System.out.println("La position de x est: "+x);
 		System.out.println("La position de y est: "+y);
+		//getType();
 	}
 	abstract public void affiche() ;
 //	{
 //		System.out.println("La position de x est: "+x);
 //		System.out.println("La position de y est: "+y);
 //	}
-	public int Aire() {
+	public int getAire() {
 		this.a= x*y;
 		return a;
 	}
